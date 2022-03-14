@@ -18,19 +18,19 @@ export class AppComponent {
 		let satellitesUrl = 'https://handlers.education.launchcode.org/static/satellites.json';
 
 		window.fetch(satellitesUrl).then(function (response) {
-			response.json().then(function (data) {
+			response.json().then(function (data) { //DATA??
 
 				let fetchedSatellites = data.satellites;
 				// loop over satellites
 				for(let i=0; i < fetchedSatellites.length; i++) {
-					// create a Satellite object 
+					// create a Satellite object; NEW FOR OBJECT TOO?
 					let satellite = new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].launchDate, fetchedSatellites[i].orbitType, fetchedSatellites[i].operational);
 					// add the new Satellite object to sourceList 
 					this.sourceList.push(satellite);
 				 }
 
 				 // make a copy of the sourceList to be shown to the user
-				 this.displayList = this.sourceList.slice(0);
+				 this.displayList = this.sourceList.slice(0); 
 	  
 			}.bind(this));
 		}.bind(this));
